@@ -7,3 +7,21 @@ function MyArray(...args) {
 		this.length++
 	}
 }
+
+MyArray.prototype.reduceRight = function(callback, initialValue) {
+	let accum
+	let startIndex
+
+	if (initialValue) {
+		accum = initialValue
+		startIndex = this.length - 1
+	} else {
+		accum = this[this.length - 1]
+		startIndex = this.length - 2
+	}
+
+	for (let i = startIndex; i >= 0; i--) {
+		accum = callback(accum, this[i], i, this)
+	}
+	return accum
+}
