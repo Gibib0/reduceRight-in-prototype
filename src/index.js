@@ -25,3 +25,11 @@ MyArray.prototype.reduceRight = function(callback, initialValue) {
 	}
 	return accum
 }
+
+const arr = new MyArray(2, 4, 6, 7, 13, 20)
+
+const res1 = arr.reduceRight((acc, cur) => acc + cur)
+console.log(res1);
+
+const res2 = arr.reduceRight((acc, cur) => acc + cur, 100)
+console.log(res2);
